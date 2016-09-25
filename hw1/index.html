@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Todo List</title>
+        <meta name="description" content="Web Programming HW1">
+        <meta name="author" content="Patrick Chen">
+
+        <link rel="stylesheet" href="semantic.min.css">
+
+        <style>
+.doneContent{
+    text-decoration: line-through;
+}
+        </style>
+    </head>
+    <body>
+        <div class="ui one column centered vertically divided grid container" style="margin-top: 30px">
+            <div class="row">
+                <div class="eight wide column">
+                    <div class="ui fluid action huge input">
+                        <input id="addInput" type="text" placeholder="Add new todo here..."></input>
+                        <button id="addBtn" class="ui icon button">
+                            <i class="plus icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight wide column">
+                    <div class="ui small statistics">
+                        <div class="ui orange statistic" style="margin-bottom: 0">
+                            <div class="value">
+                                <i class="calendar outline icon"></i><span id="undoneNum">0</span>
+                            </div>
+                            <div class="label">to be done</div>
+                        </div>
+                        <div class="ui green statistic" style="margin-bottom: 0">
+                            <div class="value">
+                                <i class="checked calendar icon"></i><span id="doneNum">0</span>
+                            </div>
+                            <div class="label">Have done</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight wide column">
+                    <div class="ui massive divided list" id="todoList">
+                    </div>
+                </div>
+            </div>
+            <script src="jquery-3.1.0.min.js"></script>
+            <script src="semantic.min.js"></script>
+            <script src="index.js"></script>
+    </body>
+</html>
