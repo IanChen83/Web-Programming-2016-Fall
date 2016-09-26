@@ -28,10 +28,10 @@ function uiTodoItemGen(content){
     var todoItem = $.parseHTML(
         '<div class="item">' +
             '<div class="right floated content">' +
-                '<button class="red basic circular ui icon button delete">' +
+                '<button class="red basic circular ui icon button delete hide">' +
                     '<i class="larger remove icon"></i>' +
                 '</button>' +
-                '<button class="green basic circular ui icon button markdone">' +
+                '<button class="green basic circular ui icon button markdone hide">' +
                     '<i class="larger checkmark icon"></i>' +
                 '</button>' +
             '</div>' +
@@ -67,6 +67,14 @@ function addToList(str){
             return (v.deleteBtn != deleteBtn);
         });
         uiUpdateStatistics();
+    });
+
+    $(todoItem).hover(function(){
+        $(markDoneBtn).toggleClass('hide');
+        $(deleteBtn).toggleClass('hide');
+    },function(){
+        $(markDoneBtn).toggleClass('hide');
+        $(deleteBtn).toggleClass('hide');
     });
 
     todoList.push({
