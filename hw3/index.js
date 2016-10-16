@@ -1,5 +1,4 @@
 /* eslint-disable prefer-arrow-callback */
-const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -58,5 +57,4 @@ app.use(function(req, res){
 
 app.listen(3000, function(err){
     if (err) throw err;
-    console.log('Express start at localhost:3000');
 });
