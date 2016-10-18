@@ -23,7 +23,7 @@ router.get('/query', function(req, res){
 router.post('/body', bodyParser.urlencoded({ extended: false }));
 router.post('/body', bodyParser.json());
 router.post('/body', function(req, res){
-    res.json(JSON.stringfy(req.body));
+    res.send(JSON.stringify(req.body));
 });
 
 // /api/users/:id
@@ -35,14 +35,16 @@ router.get('/users/:id', function(req, res){
             age: 18,
         }, {
             id: 2,
-            name: 'Joe',
-            age: 18,
+            name: 'John',
+            age: 22,
         },
     ];
     if(req.params.id === '1'){
         res.json(ret[0]);
-    }else{
+        return;
+    }else if(req.params.id === '2'){
         res.json(ret[1]);
+        return;
     }
 
     throw new Error('Requested id not equals to 1 or 2.');
