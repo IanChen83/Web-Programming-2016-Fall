@@ -27,7 +27,7 @@ router.post('/body', function(req, res){
 });
 
 // /api/users/:id
-router.get('/users/:id', function(req, res){
+router.get('/users/:id', function(req, res, next){
     const ret = [
         {
             id: 1,
@@ -47,7 +47,7 @@ router.get('/users/:id', function(req, res){
         return;
     }
 
-    throw new Error('Requested id not equals to 1 or 2.');
+    next();
 });
 
 app.use('/api', router);
