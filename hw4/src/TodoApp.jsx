@@ -6,10 +6,7 @@ class TodoApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [
-                { content: 'asdf', isDone: false },
-                { content: 'asdf', isDone: false },
-            ],
+            items: [],
             inputValue: '',
         };
 
@@ -34,7 +31,6 @@ class TodoApp extends React.Component {
 
     onAddButtonClick() {
         if(this.state.inputValue) {
-            console.log(this.state.inputValue);
             this.addItem(this.state.inputValue);
             this.setState({ inputValue: '' });
         }
