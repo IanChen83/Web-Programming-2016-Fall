@@ -5,7 +5,7 @@
   "main": "dist/index.entry.js",
   "scripts": {
     "start": "serve .",
-    "clean": "rm dist/*.entry.js",
+    "clean": "rm dist/*.entry.js && rm dist/*.entry.js.map",
     "build": "webpack",
     "build:watch": "npm run build -- --watch",
     "build:production": "NODE_ENV=production webpack -p"

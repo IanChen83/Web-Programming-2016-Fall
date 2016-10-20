@@ -1,6 +1,56 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoItem from './TodoItem';
+
+// To Fit HW requirement @@
+// This actually elevate component dependencies...
+class CountDisplay extends React.Component {
+    renderDoneNumber() {
+        return this.props.items.reduce((prev, curr) => ((curr.isDone) ? prev + 1 : prev), 0);
+    }
+
+    renderUndoneNumber() {
+        return this.props.items.length - this.renderDoneNumber();
+    }
+    render() {
+        return(
+            <div className="row">
+                <div className="eight wide column">
+                    <div className="ui two small statistics">
+                        <div className="ui orange statistic">
+                            <div className="value">
+                                <i className="calendar outline icon" />
+                                <span id="undoneNum">
+                                    {this.renderUndoneNumber()}
+                                </span>
+                            </div>
+                            <div className="label">to be done</div>
+                        </div>
+                        <div className="ui green statistic" style={{ marginBottom: 0 }}>
+                            <div className="value">
+                                <i className="checked calendar icon" />
+                                <span id="doneNum">
+                                    {this.renderDoneNumber()}
+                                </span>
+                            </div>
+                            <div className="label">Have done</div>
+                        </div>
+                    </div>
+                </div>
+            </div>);
+    }
+}
+
+
+CountDisplay.propTypes = {
+    items: React.PropTypes.arrayOf(React.PropTypes.object),
+};
+
+CountDisplay.defaultProps = {
+    items: [],
+};
+
 
 class TodoApp extends React.Component {
     constructor(props) {
@@ -52,14 +102,6 @@ class TodoApp extends React.Component {
         this.setState({ items: newItems });
     }
 
-    renderDoneNumber() {
-        return this.state.items.reduce((prev, curr) => ((curr.isDone) ? prev + 1 : prev), 0);
-    }
-
-    renderUndoneNumber() {
-        return this.state.items.length - this.renderDoneNumber();
-    }
-
     renderTodoItems() {
         if(this.state.length === 0) {
             return '';
@@ -102,30 +144,7 @@ class TodoApp extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="eight wide column">
-                        <div className="ui two small statistics">
-                            <div className="ui orange statistic">
-                                <div className="value">
-                                    <i className="calendar outline icon" />
-                                    <span id="undoneNum">
-                                        {this.renderUndoneNumber()}
-                                    </span>
-                                </div>
-                                <div className="label">to be done</div>
-                            </div>
-                            <div className="ui green statistic" style={{ marginBottom: 0 }}>
-                                <div className="value">
-                                    <i className="checked calendar icon" />
-                                    <span id="doneNum">
-                                        {this.renderDoneNumber()}
-                                    </span>
-                                </div>
-                                <div className="label">Have done</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <CountDisplay items={this.state.items} />
                 <div className="row">
                     <div className="eight wide column">
                         <div className="ui massive divided list">
