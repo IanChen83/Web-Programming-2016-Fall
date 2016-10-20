@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
@@ -29,6 +30,14 @@ const config = {
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
+    devtool: 'cheap-module-source-map',
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        })
+    ]
 };
 
 module.exports = config;
