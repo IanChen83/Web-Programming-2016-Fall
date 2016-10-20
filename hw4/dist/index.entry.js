@@ -79,7 +79,7 @@
 	        var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
 
 	        _this.state = {
-	            items: [{ content: 'asdf', isDone: false }, { content: 'asdf', isDone: false }],
+	            items: [],
 	            inputValue: ''
 	        };
 
@@ -108,7 +108,6 @@
 	        key: 'onAddButtonClick',
 	        value: function onAddButtonClick() {
 	            if (this.state.inputValue) {
-	                console.log(this.state.inputValue);
 	                this.addItem(this.state.inputValue);
 	                this.setState({ inputValue: '' });
 	            }
