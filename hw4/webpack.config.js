@@ -6,7 +6,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 const config = {
     entry: {
-        index: `${APP_DIR}/TodoApp.jsx`,
+        index: `${APP_DIR}/index.jsx`,
     },
     output: {
         path: BUILD_DIR,
