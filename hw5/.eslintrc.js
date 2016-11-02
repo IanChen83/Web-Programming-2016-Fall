@@ -1,5 +1,11 @@
 module.exports = {
     "extends": "airbnb",
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "plugins": [
         "react",
         "jsx-a11y",
@@ -13,8 +19,7 @@ module.exports = {
         "react/jsx-indent": [2, 4],
         "space-before-function-paren": "off"
     },
-    "globals": {
-        "document": true,
-        "window": true
+    "env": {
+        "browser": true
     }
 };
