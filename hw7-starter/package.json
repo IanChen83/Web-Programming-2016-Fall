@@ -1,0 +1,28 @@
+{
+  "name": "hw4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.entry.js",
+  "scripts": {
+    "start": "serve .",
+    "clean": "rm dist/*.entry.js && rm dist/*.entry.js.map",
+    "build": "webpack",
+    "build:watch": "npm run build -- --watch",
+    "build:production": "NODE_ENV=production webpack -p"
+  },
+  "author": "Patrick Chen",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.18.0",
+    "express": "^4.14.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
