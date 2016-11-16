@@ -112,7 +112,6 @@ class CalcApp extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return(
             <div className="calc-app">
                 <div className="calc-container">
