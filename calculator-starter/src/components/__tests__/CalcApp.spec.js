@@ -246,3 +246,44 @@ it('AC should clear state', () => {
   expect(app.state()).toEqual(initialState);
 });
 
+it('Reverse sign should work', () => {
+  const app = mount(<CalcApp />);
+
+  const initialState = app.state();
+
+  const rows = app.find('.calc-row');
+  const row0 = rows.at(0);
+  const reverseSign = row0.find(CalcButton).at(1);
+
+  const row1 = rows.at(1);
+  const btn7 = row1.find(CalcButton).at(0);
+
+  btn7.simulate('click');
+
+  const num = +app.find('.calc-display').text();
+  reverseSign.simulate('click');
+
+  expect(+app.find('.calc-display').text()).toEqual(-num);
+});
+
+it('2 / 2 = -> 1', () => {
+  const app = mount(<CalcApp />);
+
+  const rows = app.find('.calc-row');
+
+  const row3 = rows.at(3);
+  const btn2 = row3.find(CalcButton).at(1);
+
+  const row0 = rows.at(0)
+  const btnDivided = row0.find(CalcButton).at(3);
+
+  const row4 = rows.at(4);
+  const btnEqual = row4.find(CalcButton).at(2);
+
+  btn2.simulate('click');
+  btnDivided.simulate('click');
+  btn2.simulate('click');
+  btnEqual.simulate('click');
+
+  expect(app.find('.calc-display').text()).toBe('1');
+});

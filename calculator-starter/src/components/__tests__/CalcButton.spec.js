@@ -30,3 +30,4 @@ it('call props.onClick when button be clicked', () => {
 
   expect(onClick).toBeCalled();
 });
+
